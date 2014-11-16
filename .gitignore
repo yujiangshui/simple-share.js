@@ -1,0 +1,6 @@
+PSD
+files
+node_modules
+.DS_Store
+.sass-cache
+Thumbs.db
