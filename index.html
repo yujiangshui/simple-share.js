@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Simple-share.js : 简单高效的社会化分享代码。">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Simple-share.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/yujiangshui/simple-share.js">View on GitHub</a>
+
+          <h1 id="project_title">Simple-share.js</h1>
+          <h2 id="project_tagline">简单高效的社会化分享代码。</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/yujiangshui/simple-share.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/yujiangshui/simple-share.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="simple-sharejs" class="anchor" href="#simple-sharejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>simple-share.js</h1>
+
+<p>简单高效的社会化分享代码。</p>
+
+<p>当网站需要添加社会化分享功能的时候，你会马上想到 <a href="http://share.baidu.com/">Baidu Share</a> 或者 <a href="http://www.jiathis.com/">JiaThis</a> 这类的第三方分享聚合工具。你可以通过配置获取一段代码，粘贴进你自己得网站上即可完成功能需求。</p>
+
+<p>有利也有弊，使用这种方式最大的问题就是<strong>性能问题</strong>和<strong>自定义不方便</strong>。</p>
+
+<ul>
+<li>性能方面，哪怕你只需要分享到微博功能，你也需要加载一坨 JS，而常用的社会化分享只有几个而已；</li>
+<li>自定义方面，你设计的分享图标等需要按照对方的结构进行自定义还需要对自带 CSS 做冲突处理，也会造成一些成本和代码冗余。</li>
+</ul>
+
+<p>So，这个小插件就是应对这个需求产生的。</p>
+
+<h2>
+<a id="特性" class="anchor" href="#%E7%89%B9%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>特性</h2>
+
+<p>简单、高效。本插件只支持八种最常用的社会化分享功能（微博、QQ空间、腾讯微博、人人、豆瓣、facebook、twitter、linkedin），并可以根据自己需求增加新的社会化分享目标。</p>
+
+<p>所以只有几十行代码体积 1kb 左右。直接引入使用即可无须依赖其他库。</p>
+
+<h2>
+<a id="用法" class="anchor" href="#%E7%94%A8%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>用法</h2>
+
+<p>1，在页面中引入该插件</p>
+
+<p><code>&lt;script src="../build/simple-share.min.js"&gt;&lt;/script&gt;</code></p>
+
+<p>2，new 一个实例并调用对应分享功能</p>
+
+<p>new 一个实例并设置分享内容，后端动态输出</p>
+
+<pre><code>var share = new SimpleShare({
+    url: 'http://www.taobao.com/',
+    title: '淘宝',
+    content: '淘宝是个很不错的购物网站',
+    pic: 'http://gtms01.alicdn.com/tps/i1/T1SwHiFnlkXXc.QAHh-202-55.png'
+});
+</code></pre>
+
+<p>在页面上触发调用</p>
+
+<pre><code>&lt;a href="javascript:share.weibo();"&gt;weibo&lt;/a&gt;
+&lt;a href="javascript:share.qzone();"&gt;qzone&lt;/a&gt;
+&lt;a class="sharetotqq" href="javascript:;"&gt;tqq&lt;/a&gt;
+&lt;a href="javascript:share.renren();"&gt;renren&lt;/a&gt;
+&lt;a href="javascript:share.douban();"&gt;douban&lt;/a&gt;
+&lt;a href="javascript:share.facebook();"&gt;facebook&lt;/a&gt;
+&lt;a href="javascript:share.twitter();"&gt;twitter&lt;/a&gt;
+&lt;a href="javascript:share.linkedin();"&gt;linkedin&lt;/a&gt;
+</code></pre>
+
+<p>或者用其他事件触发</p>
+
+<pre><code>document.querySelector('.sharetotqq').addEventListener('click',function() {
+    share.tqq();
+});
+</code></pre>
+
+<p>同一页面多个不同的分享功能，请参照 <code>test/multiple-share.html</code> demo，new 多个实例调用。</p>
+
+<h2>
+<a id="参数" class="anchor" href="#%E5%8F%82%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>参数</h2>
+
+<p>为了保证简洁，支持四个自定义参数：</p>
+
+<pre><code>{
+    url: '分享的网址',
+    title: '分享的标题',
+    content: '分享摘要或者内容',
+    pic: '分享图片 url '
+}
+</code></pre>
+
+<p>参数全部可选，全部为空时，会自动获取当前 url 和 title 作为 url 和 title 属性调用分享。</p>
+
+<h2>
+<a id="添加更多社会化分享目标" class="anchor" href="#%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E7%A4%BE%E4%BC%9A%E5%8C%96%E5%88%86%E4%BA%AB%E7%9B%AE%E6%A0%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>添加更多社会化分享目标</h2>
+
+<p>1，查找对方 API 文档，找到分享接口格式等，组合添加。</p>
+
+<p>2，查看百度分享对应分享目标的接口格式，例如点击微博会跳转到</p>
+
+<pre><code>http://service.weibo.com/share/share.php?url=......&amp;title=...&amp;appkey=...&amp;searchPic=false
+</code></pre>
+
+<p>这样得分享按钮，即可获得微博的分享格式，修改添加进 JS 文件中即可。</p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>测试添加 requirejs、seajs 支持</li>
+</ul>
+
+<h2>
+<a id="协议" class="anchor" href="#%E5%8D%8F%E8%AE%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>协议</h2>
+
+<p>MIT</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Simple-share.js maintained by <a href="https://github.com/yujiangshui">yujiangshui</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
