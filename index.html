@@ -45,7 +45,15 @@
 <li>自定义方面，你设计的分享图标等需要按照对方的结构进行自定义还需要对自带 CSS 做冲突处理，也会造成一些成本和代码冗余。</li>
 </ul>
 
-<p>So，这个小插件就是应对这个需求产生的。</p>
+<p>So，这个小插件就是应对这个需求产生的。点击试下：<br>
+<a href="javascript:share.weibo();">weibo</a>
+<a href="javascript:share.qzone();">qzone</a>
+<a class="sharetotqq" href="javascript:;">tqq</a>
+<a href="javascript:share.renren();">renren</a>
+<a href="javascript:share.douban();">douban</a>
+<a href="javascript:share.facebook();">facebook</a>
+<a href="javascript:share.twitter();">twitter</a>
+<a href="javascript:share.linkedin();">linkedin</a></p>
 
 <h2>
 <a id="特性" class="anchor" href="#%E7%89%B9%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>特性</h2>
@@ -144,6 +152,15 @@
     </div>
 
     
+<script src="./lib/simple-share.min.js"></script>
+<script>
 
+var share = new SimpleShare();
+
+document.querySelector('.sharetotqq').addEventListener('click',function() {
+  share.tqq();
+});
+
+</script>
   </body>
 </html>
