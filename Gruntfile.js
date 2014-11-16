@@ -6,10 +6,12 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		uglify: {
 			options: {
-				banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 			},
 			compress: {
-				'build/simple-share.min.js': ['lib/simple-share.js']
+				files: {
+					'./build/simple-share.min.js': ['./lib/simple-share.js']
+				}
 			}
 		},
 		jshint: {
