@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+<a href="javascript:share.weibo();">weibo 分享淘宝</a>
+<a href="javascript:share2.weibo();">weibo 分享百度</a>
+
+
+<script src="../build/simple-share.min.js"></script>
+<script>
+
+var share = new SimpleShare({
+	url: 'http://www.taobao.com/',
+	title: '淘宝',
+	content: '淘宝是个很不错的购物网站',
+	pic: 'http://gtms01.alicdn.com/tps/i1/T1SwHiFnlkXXc.QAHh-202-55.png'
+});
+var share2 = new SimpleShare({
+	url: 'http://www.baidu.com/',
+	title: '百度',
+	content: '百度是个搜索引擎',
+	pic: 'http://su.bdimg.com/static/superplus/img/logo_white_ee663702.png'
+});
+
+</script>
+</body>
+</html>

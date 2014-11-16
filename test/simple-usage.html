@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+<a href="javascript:share.weibo();">weibo</a>
+<a href="javascript:share.qzone();">qzone</a>
+<a href="javascript:share.tqq();">tqq</a>
+<a href="javascript:share.renren();">renren</a>
+<a href="javascript:share.douban();">douban</a>
+<a href="javascript:share.facebook();">facebook</a>
+<a href="javascript:share.twitter();">twitter</a>
+<a href="javascript:share.linkedin();">linkedin</a>
+
+
+<script src="../build/simple-share.min.js"></script>
+<script>
+
+var share = new SimpleShare({
+	url: 'http://www.taobao.com/',
+	title: '淘宝',
+	content: '淘宝是个很不错的购物网站',
+	pic: 'http://gtms01.alicdn.com/tps/i1/T1SwHiFnlkXXc.QAHh-202-55.png'
+});
+
+</script>
+</body>
+</html>
