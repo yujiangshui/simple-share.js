@@ -71,13 +71,13 @@ document.querySelector('.sharetotqq').addEventListener('click',function() {
 	pic: '分享图片 url '
 }
 ```
-参数全部可选，全部为空时，会自动获取当前 url 和 title 作为 url 和 title 属性调用分享。
+参数全部可选，当全部为空时，会自动获取当前页面的 url 和 title 作为 url 和 title 属性调用分享。
 
 ## 添加更多社会化分享目标
 
-1，查找对方 API 文档，找到分享接口格式等，组合添加。
+方法1：查找对方 API 文档，找到分享接口格式等，组合添加。
 
-2，查看百度分享对应分享目标的接口格式，例如点击微博会跳转到
+方法2（推荐）：查看百度分享对应分享目标的接口格式，例如点击微博会跳转到
 
 ```
 http://service.weibo.com/share/share.php?url=......&title=...&appkey=...&searchPic=false
