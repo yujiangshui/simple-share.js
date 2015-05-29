@@ -48,6 +48,7 @@ var share = new SimpleShare({
 <a href="javascript:share.facebook();">facebook</a>
 <a href="javascript:share.twitter();">twitter</a>
 <a href="javascript:share.linkedin();">linkedin</a>
+<a href="javascript:share.weixin();">weixin</a>
 ```
 或者用其他事件触发
 
@@ -58,6 +59,14 @@ document.querySelector('.sharetotqq').addEventListener('click',function() {
 ```
 
 同一页面多个不同的分享功能，请参照 `test/multiple-share.html` demo，new 多个实例调用。
+
+由于微信的分享基于二维码，从简单灵活的角度考虑，你可以传递一个回调函数获取二维码进行下一步操作，比如将二维码图片插入到某个 img 标签里面并自定义样式外观等。用法如下：
+
+```
+share.weixin(function(qrcode){
+	alert(qrcode);
+});
+```
 
 ## 参数
 
