@@ -1,6 +1,8 @@
 simple-share.js
 ===============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/yujiangshui/simple-share.js.svg)](https://greenkeeper.io/)
+
 简单高效的社会化分享代码。
 
 当网站需要添加社会化分享功能的时候，你会马上想到 [Baidu Share](http://share.baidu.com/) 或者 [JiaThis](http://www.jiathis.com/) 这类的第三方分享聚合工具。你可以通过配置获取一段代码，粘贴进你自己得网站上即可完成功能需求。
